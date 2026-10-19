@@ -19,7 +19,7 @@ def average_score(filename):
             count=count + 1
     file.close()
     if count == 0:
-            print("0")
+            return 0
     return round(total / count, 1)
 
 # Exercise 3
