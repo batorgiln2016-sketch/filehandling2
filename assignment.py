@@ -24,8 +24,20 @@ def average_score(filename):
 
 # Exercise 3
 def filter_passed(source, destination, pass_mark):
-    # Write your code here
-    pass
+    file = open(source, "r")
+    new_file = open(destination, "w")
+    count = 0
+    for line in file:
+        line = line.strip()
+        parts = line.split(",")
+        name = parts[0]
+        score = int(parts[1])
+        if score >= pass_mark:
+            new_file.write(name + "," + str(score) + "\n")
+            count = count + 1
+    file.close()
+    new_file.close()
+    return count
 
 # Exercise 4
 def replace_word(filename, old_word, new_word):
