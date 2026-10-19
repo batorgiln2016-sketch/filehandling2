@@ -20,7 +20,7 @@ def average_score(filename):
     file.close()
     if count == 0:
             print("0")
-    return(round(total / count, 1))
+    return round(total / count, 1)
 
 # Exercise 3
 def filter_passed(source, destination, pass_mark):
