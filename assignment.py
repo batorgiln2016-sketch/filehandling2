@@ -8,8 +8,20 @@ def save_scores(names, scores, filename):
     file.close()
 # Exercise 2
 def average_score(filename):
-    # Write your code here
-    pass
+    file = open(filename, "r")
+    total = 0
+    count = 0
+    for line in file:
+        line = line.strip()
+        if line == "":
+            parts = line.split(",")
+            score = int(parts[1])
+            total=total + score
+            count=count + 1
+    file.close()
+    if count == 0:
+            print("0")
+    return(round(total / count, 1))
 
 # Exercise 3
 def filter_passed(source, destination, pass_mark):
