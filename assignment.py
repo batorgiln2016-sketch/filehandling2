@@ -15,8 +15,7 @@ def average_score(filename):
         line = line.strip()
         if line == "":
             parts = line.split(",")
-            score = int(parts[1])
-            total=total + score
+            total=total + int(parts[1])
             count=count + 1
     file.close()
     if count == 0:
