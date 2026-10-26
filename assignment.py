@@ -58,9 +58,9 @@ def remove_line(filename, line_number):
     lines = file.readlines()
     file.close()
     if line_number < 1 or line_number > len(lines):
-        return
+        return False
     lines.pop(line_number - 1)
     file = open(filename, "w")
-    for line in lines:
-        file.write(line)
+    file.writelines(lines)
     file.close()
+    return True
