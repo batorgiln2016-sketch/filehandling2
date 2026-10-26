@@ -45,6 +45,8 @@ def replace_word(filename, old_word, new_word):
     file = open(filename, "r")
     text = file.read()
     file.close()
+    if old_word not in text:
+        return
     text = text.replace(old_word, new_word)
     file = open(filename, "w")
     file.write(text)
