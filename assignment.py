@@ -45,12 +45,12 @@ def replace_word(filename, old_word, new_word):
     file = open(filename, "r")
     text = file.read()
     file.close()
-    if old_word not in text:
-        return
+    count = text.count(old_word)
     text = text.replace(old_word, new_word)
     file = open(filename, "w")
     file.write(text)
     file.close()
+    return count
 
 # Exercise 5
 def remove_line(filename, line_number):
