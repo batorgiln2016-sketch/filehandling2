@@ -9,18 +9,13 @@ def save_scores(names, scores, filename):
 # Exercise 2
 def average_score(filename):
     file = open(filename, "r")
-    total = 0
-    count = 0
+    lst = []
     for line in file:
         line = line.strip()
-        if line == "":
-            parts = line.split(",")
-            total=total + int(parts[1])
-            count=count + 1
+        if line != "":
+            lst.append(line)
     file.close()
-    if count == 0:
-            return 0
-    return round(total / count, 1)
+    return lst
 
 # Exercise 3
 def filter_passed(source, destination, pass_mark):
@@ -41,10 +36,23 @@ def filter_passed(source, destination, pass_mark):
 
 # Exercise 4
 def replace_word(filename, old_word, new_word):
-    # Write your code here
-    pass
+    file = open(filename, "r")
+    text = file.read()
+    file.close()
+    text = text.replace(old_word, new_word)
+    file = open(filename, "w")
+    file.write(text)
+    file.close()
 
 # Exercise 5
 def remove_line(filename, line_number):
-    # Write your code here
-    pass
+    file = open(filename, "r")
+    lines = file.readlines()
+    file.close()
+    if line_number < 1 or line_number > len(lines):
+        return
+    lines.pop(line_number - 1)
+    file = open(filename, "w")
+    for line in lines:
+        file.write(line)
+    file.close()
